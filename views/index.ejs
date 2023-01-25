@@ -1,8 +1,21 @@
 <%- include('partials/header.ejs') -%>
 
 <div class="container">
-    <a href="/login">login</a>
-    <a href="/signin">Sign in</a>
+    <h2>Login</h2>
+    <form action="/login" method="post">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" class="form-control" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="Enter password">
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <div>
+            <p>Don't have an account yet? <a href="/register">Sign up now.</a></p>
+        </div>
+    </form>
 </div>
 
 <%- include('partials/footer.ejs') -%>
