@@ -10,3 +10,5 @@ add .env file to config folder. add the following secrets to it:
 - PORT = "Any port you like"
 
 > running the app
+
+npm run devStart on terminal
