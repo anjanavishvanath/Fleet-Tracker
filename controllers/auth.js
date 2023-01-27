@@ -2,12 +2,12 @@ const passport = require('passport')
 const validator = require('validator')
 const User = require('../models/User')
 
-exports.getLogin = (req,res) => {
-    if(req.user){
-      return res.redirect('/todos')
-    }
-    res.render('login', {title: "Login"})
+exports.getLanding = (req,res) => {
+  if(req.user){
+    return res.redirect('/device')
   }
+  res.render('login', {title: "Fleet-Tracker Login"})
+}
 
 exports.postLogin = (req,res,next) => {
   const validationErrors = []
@@ -28,16 +28,16 @@ exports.postLogin = (req,res,next) => {
     req.logIn(user, (err) => {
       if (err) { return next(err) }
       req.flash('success', { msg: 'Success! You are logged in.' })
-      res.redirect(req.session.returnTo || '/todos')
+      res.redirect(req.session.returnTo || '/device')
     })
   })(req, res, next)
 }
 
-  exports.getSignup = (req,res) => {
+  exports.getRegister = (req,res) => {
     res.render('register', {title: "Register"})
 }
 
-exports.postSignup = (req, res, next) => {
+exports.postRegister = (req, res, next) => {
     const validationErrors = []
     if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' })
     if (!validator.isLength(req.body.password, { min: 8 })) validationErrors.push({ msg: 'Password must be at least 8 characters long' })
@@ -45,7 +45,7 @@ exports.postSignup = (req, res, next) => {
   
     if (validationErrors.length) {
       req.flash('errors', validationErrors)
-      return res.redirect('../signup')
+      return res.redirect('../register')
     }
     req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false })
   
@@ -62,7 +62,7 @@ exports.postSignup = (req, res, next) => {
       if (err) { return next(err) }
       if (existingUser) {
         req.flash('errors', { msg: 'Account with that email address or username already exists.' })
-        return res.redirect('../signup')
+        return res.redirect('../register')
       }
       user.save((err) => {
         if (err) { return next(err) }
@@ -70,7 +70,7 @@ exports.postSignup = (req, res, next) => {
           if (err) {
             return next(err)
           }
-          res.redirect('/todos')
+          res.redirect('/')
         })
       })
     })

@@ -16,5 +16,6 @@ npm run devStart on terminal
 
 
 ### To do:
-authenticate them in login.
-go to protected route.
+device schema implimentation
+** how to register new device to person
+have logout
