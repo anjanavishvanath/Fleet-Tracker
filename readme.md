@@ -16,7 +16,5 @@ npm run devStart on terminal
 
 
 ### To do:
-Finish user schema.
-register users to Users collection.
 authenticate them in login.
 go to protected route.
