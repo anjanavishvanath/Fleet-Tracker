@@ -15,7 +15,7 @@ exports.postLogin = (req,res,next) => {
   if (validator.isEmpty(req.body.password)) validationErrors.push({ msg: 'Password cannot be blank.' })
   if (validationErrors.length) {
     req.flash('errors', validationErrors)
-    return res.redirect('/login')
+    return res.redirect('/device')
   }
   req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false })
 

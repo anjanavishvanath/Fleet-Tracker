@@ -1,7 +1,13 @@
-#map {
-    height: 180px,
+.center{
+    margin: 0 auto;
 }
 
-body{
-    background: gray;
+.form-background{
+    padding-top: 50px;
+    background: #84b7cf;
+    border-radius: 25px;
+}
+
+.group-padding{
+    padding: 10px 15px;
 }
