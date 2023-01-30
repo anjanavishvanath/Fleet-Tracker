@@ -2,8 +2,8 @@ const Device = require('../models/Device')
 
 exports.getDevice = async (req,res) => {
     try {
-        res.render('device', {title: "registerd devices", user: req.user.userName})
-        console.log(req.user)
+        const Devices = await Device.find()
+        res.render('device', {title: "registerd devices", user: req.user.userName, devices: Devices})
     } catch (error) {
         console.error(error);
     }
@@ -23,6 +23,14 @@ exports.postDevice =async (req,res) => {
     }
 }
 
-exports.getLocation = (req,res) => {
+exports.getLocation = async (req,res) => {
+    const deviceData = await Device.find({deviceID: req.params.id})
+    console.log(deviceData)
     res.render('tracking')
+}
+
+
+//does not work
+exports.postLocation = (req,res) => {
+    console.log("Hello")
 }

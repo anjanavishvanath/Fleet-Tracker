@@ -4,7 +4,11 @@ const deviceControllers = require('../controllers/tracker')
 const { ensureAuth, ensureGuest } = require("../middleware/auth")
 
 router.get('/',ensureAuth, deviceControllers.getDevice)
-router.get('/id', deviceControllers.getLocation)
 router.post('/new', deviceControllers.postDevice)
+router.get('/:id', deviceControllers.getLocation)
+
+//dose not work
+router.get('/devicedata', deviceControllers.postLocation)
 
 module.exports = router
+
