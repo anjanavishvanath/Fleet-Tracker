@@ -16,6 +16,6 @@ npm run devStart on terminal
 
 
 ### To do:
-device schema implimentation
-** how to register new device to person
+List registerd devices
+link each device id to link to get location
 have logout
