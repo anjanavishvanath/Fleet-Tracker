@@ -1,4 +1,5 @@
-const Device = require('../models/Device')
+const Device = require('../models/Device');
+const DeviceLoc = require('../models/DeviceLoc');
 
 exports.getDevice = async (req,res) => {
     try {
@@ -29,8 +30,25 @@ exports.getLocation = async (req,res) => {
     res.render('tracking')
 }
 
-
-//does not work
-exports.postLocation = (req,res) => {
-    console.log("Hello")
-}
+exports.postLocation = async (req, res) => {
+    const updateLocation = () => {
+      return DeviceLoc.findOneAndUpdate(
+        { deviceID: req.body.deviceID },
+        {
+          lon: req.body.lon,
+          lat: req.body.lat
+        },
+        {
+          upsert: true,
+          new: true
+        }
+      );
+    };
+  
+    try {
+      const data = await updateLocation();
+      console.log(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
