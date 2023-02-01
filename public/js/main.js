@@ -1,6 +1,11 @@
-var map = L.map('map').setView([51.505, -0.09], 13);
+const lon = document.querySelector("#lon").innerHTML
+const lat = document.querySelector("#lat").innerHTML
+
+console.log(`${lon}, ${lat}`)
+var map = L.map('map').setView([lon, lat], 13);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-    maxZoom: 18
-}).addTo(map);
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map)
+
+var marker = L.marker([lon,lat]).addTo(map);

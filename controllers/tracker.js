@@ -25,9 +25,9 @@ exports.postDevice =async (req,res) => {
 }
 
 exports.getLocation = async (req,res) => {
-    const deviceData = await Device.find({deviceID: req.params.id})
-    console.log(deviceData)
-    res.render('tracking')
+    const deviceData = await DeviceLoc.findOne({deviceID: req.params.id})
+    console.log(deviceData.lon)
+    res.render('tracking',{lon:deviceData.lon, lat:deviceData.lat})
 }
 
 exports.postLocation = async (req, res) => {
@@ -48,7 +48,17 @@ exports.postLocation = async (req, res) => {
     try {
       const data = await updateLocation();
       console.log(data);
+      res.send(data)
     } catch (err) {
       console.error(err);
     }
   };
+
+  exports.getClientData = async (req,res) => {
+    try {
+        const deviceData = await DeviceLoc.find({deviceID: req.params.id})
+        res.json(deviceData)
+    } catch (error) {
+        res.status(500).json({ message: err.message });
+    }
+  }

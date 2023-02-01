@@ -11,3 +11,7 @@
 .group-padding{
     padding: 10px 15px;
 }
+
+.loc{
+    display: none;
+}
