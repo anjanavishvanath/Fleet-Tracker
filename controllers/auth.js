@@ -23,7 +23,7 @@ exports.postLogin = (req,res,next) => {
     if (err) { return next(err) }
     if (!user) {
       req.flash('errors', info)
-      return res.redirect('/login')
+      return res.redirect('/')
     }
     req.logIn(user, (err) => {
       if (err) { return next(err) }
