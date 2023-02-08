@@ -15,3 +15,18 @@
 .loc{
     display: none;
 }
+
+.dlt{
+    border: 1px solid red;
+    border-radius: 15%;
+    background: firebrick;
+    color:black;
+    margin-left: 20px;
+    padding: 2px 5px;
+}
+
+ul{
+    padding-top: 30px;
+    list-style: none;
+}
+

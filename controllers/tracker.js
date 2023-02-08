@@ -3,7 +3,7 @@ const DeviceLoc = require('../models/DeviceLoc');
 
 exports.getDevice = async (req,res) => {
     try {
-        const Devices = await Device.find()
+        const Devices = await Device.find({user: req.user._id})
         res.render('device', {title: "registerd devices", user: req.user.userName, devices: Devices})
     } catch (error) {
         console.error(error);
@@ -15,7 +15,8 @@ exports.postDevice =async (req,res) => {
     try {
         const newDevice = await Device.create({
             deviceID: req.body.device,
-            deviceName: req.body.deviceName
+            deviceName: req.body.deviceName,
+            user: req.user._id
         })
         console.log('"Device has been added')
         res.redirect('/device')
@@ -62,3 +63,14 @@ exports.postLocation = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
   }
+
+  exports.deleteDevice = async (req,res) => {
+    console.log(req.body.devicetoDlt)
+    try {
+      await Device.findOneAndDelete({_id:req.body.devicetoDlt})
+      res.json('Deleted it')
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  

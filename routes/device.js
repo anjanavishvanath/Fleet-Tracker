@@ -7,5 +7,6 @@ router.get('/',ensureAuth, deviceControllers.getDevice)
 router.post('/new', deviceControllers.postDevice)
 router.get('/:id', deviceControllers.getLocation)
 router.post('/devicedata', deviceControllers.postLocation)
+router.delete('/delete', deviceControllers.deleteDevice)
 module.exports = router
 

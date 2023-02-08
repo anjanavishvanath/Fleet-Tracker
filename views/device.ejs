@@ -1,5 +1,7 @@
 <%- include('partials/header.ejs') -%>
-
+<nav>
+    <a href="/logout">Logout</a>
+</nav>
 <h2>Hello, <%= user %></h2>
 
 <div class="container">
@@ -23,7 +25,10 @@
     <div class="row">
         <ul>
             <% for(var i = 0; i < devices.length; i++) { %>
-                <li><a href="/device/<%= devices[i].deviceID %>"><%=devices[i].deviceName %></a></li>
+                <li data-id="<%=devices[i]._id%>">
+                    <a href="/device/<%= devices[i].deviceID %>"><%=devices[i].deviceName %></a>
+                    <span class="dlt" >delete</span>
+                </li>
             <% } %>
         </ul>
     </div>
@@ -31,5 +36,5 @@
 
 
 <!-- <a href="/device/id">Check out location</a> -->
-
+<script type="text/javascript" src="/js/fns.js"></script>
 <%- include('partials/footer.ejs') -%>

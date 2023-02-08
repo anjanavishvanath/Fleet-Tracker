@@ -6,6 +6,7 @@ router.get('/', authController.getLanding)
 router.get('/register', authController.getRegister)
 router.post('/register', authController.postRegister)
 router.post('/login', authController.postLogin)
+router.get('/logout', authController.logout)
 
 
 
