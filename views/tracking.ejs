@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Leaflet Map Example</title>
+    <title>Location</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <link rel="stylesheet" type="text/css" href="/css/trac-styles.css">
   </head>
   <body>
-    <div class="container loc">
+    <%- include('partials/nav.ejs') -%>  
+    
+    <div class="device">
       <h3 class="row loc">Coordinates: </h3>
       <span class="col-3" id="lon"><%= lon %></span>
       <span class="col-3" id="lat"><%= lat %></span>
     </div>
-    <div id="map" style="height: 800px;"></div>
+    
+    <div id="map"></div>
     <script type="text/javascript" src="/js/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,27 @@
+body{
+    margin: 0;
+    padding: 0; 
+}
+
+nav{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+    padding-right: 10px;
+    background: rgb(30, 144, 255);
+    margin-bottom: 20px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+.device{
+    border: 1px solid black;
+}
+
+#map{
+    height: 800px;
+}
