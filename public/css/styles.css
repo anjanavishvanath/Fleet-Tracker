@@ -2,6 +2,39 @@
     margin: 0 auto;
 }
 
+nav{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+    padding-right: 10px;
+    background: rgb(30, 144, 255);
+    margin-bottom: 20px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+.device-list{
+    list-style: none;
+    padding-top: 30px;
+}
+
+.device-list> li{
+    background-color:rgb(14, 75, 156);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+h2{
+    padding: 10px;
+}
+
 .form-background{
     padding-top: 50px;
     background: #84b7cf;
@@ -12,21 +45,17 @@
     padding: 10px 15px;
 }
 
-.loc{
-    display: none;
+.submit-btn{
+    margin-top: 10px;
 }
+
 
 .dlt{
     border: 1px solid red;
     border-radius: 15%;
     background: firebrick;
-    color:black;
+    color:white;
     margin-left: 20px;
     padding: 2px 5px;
+    cursor: pointer;
 }
-
-ul{
-    padding-top: 30px;
-    list-style: none;
-}
-
